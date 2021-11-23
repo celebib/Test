@@ -15,7 +15,7 @@ $(function() {
 	// Number of avatars the user can choose from. Can be changed to any number, depending on how many avatars you would like to display. Default: 82
 	// The avatar images used in the online preview of the paradigm were created using by pickaface.net and due to their terms not available for redistribution. You should therefore create your own images. All images should be 250x250 pixels in size and carry the names "avatar_NUMBER.png" (e.g. avatar_1.png; "png" should be lower case; the numbers in the names should be consequtive, starting from 1). The number of avatars dependeds on the corresponding parameter. The images should be placed in folder "avatars," located in the main study folder extracted on your computer or server.
 
-    settings.numberofavatars = 10;
+    settings.numberofavatars = 82;
 
 	
     // **Redirection**    
@@ -334,7 +334,8 @@ $(function() {
     if(window.QueryString.c !== undefined && !isNaN(parseInt(window.QueryString.c)) && parseInt(window.QueryString.c) > 0 && parseInt(window.QueryString.c) < 4) {
       window.condition = parseInt(window.QueryString.c);
     } else {
-      window.condition = 1; // condition defaults to 1
+      window.condition = Math.round(Math.random() * 2 + 1); // condition defaults to 1
+      console.log(window.condition);
     }
     // participant number must be numeric
     if(window.QueryString.p !== undefined && !isNaN(parseInt(window.QueryString.p))) {
